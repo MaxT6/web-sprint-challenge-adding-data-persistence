@@ -7,7 +7,7 @@ exports.up = function(knex) {
         .unique()
         .notNullable();
       tbl.varchar('project_description', 128);
-      tbl.varchar('project_completed').notNullable();
+      tbl.boolean('project_completed');
     })
 
 .createTable('resources', tbl => {
@@ -23,7 +23,7 @@ exports.up = function(knex) {
   tbl.varchar('task_description', 128)
     .notNullable();
   tbl.varchar('task_notes');
-  tbl.varchar('task_completed').notNullable();
+  tbl.boolean('task_completed');
   tbl.integer('project_id')
     .unsigned()
     .notNullable() //may have to remove
